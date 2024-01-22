@@ -1,5 +1,10 @@
 const mockRoutes = [
   {
+    title: "用户信息",
+    path: "/userInfo",
+    component: "UserInfo",
+  },
+  {
     title: "菜单",
     path: "/menu",
     component: "Menu",
