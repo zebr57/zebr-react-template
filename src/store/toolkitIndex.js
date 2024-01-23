@@ -1,6 +1,7 @@
 // 1.引入 （toolkit只是使我们书写起来比较直观）
 import { createSlice, configureStore, createAsyncThunk } from "@reduxjs/toolkit";
 import userInfoReducer from "./userInfo";
+import httpReducer from "./common";
 // 4. 异步,定义必须在 slice 前面, 第一个参数可随意起
 export let changeNumThunk = createAsyncThunk("numSlice/changeNum", async () => {
   let res = await new Promise((resolve) => {
@@ -55,8 +56,14 @@ const store = configureStore({
     mesReducer: mesSlice.reducer,
     numReducer: numSlice.reducer,
     userInfoReducer,
+    httpReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
+
 // console.log(mesSlice.actions); // {changeMes: ƒ}
 
 export let { changeMes } = mesSlice.actions;
