@@ -33,9 +33,9 @@ function ModalBox(props, ref) {
     </>
   );
 }
-
+const RefModalBox = forwardRef(ModalBox)
 // 类型校验
-ModalBox.propTypes = {
+RefModalBox.propTypes = {
   // msg: function (props) {
   //   if (typeof props.msg !== "string") {
   //     throw new Error("msg must be a string");
@@ -44,7 +44,7 @@ ModalBox.propTypes = {
   msg: propTypes.string,
 };
 // 默认值
-ModalBox.defaultProps = {
+RefModalBox.defaultProps = {
   msg: "自定义标题",
   attr: {
     okText: "确定",
@@ -52,4 +52,4 @@ ModalBox.defaultProps = {
   },
 };
 
-export default forwardRef(ModalBox);
+export default RefModalBox;
