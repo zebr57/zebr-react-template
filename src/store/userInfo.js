@@ -14,6 +14,7 @@ export let changeUserInfoThunk = createAsyncThunk("userInfoSlice/changeUserInfoA
           isNotification: true,
         },
         token: "admin123",
+        auth: 'userInfo,menu:son1,menu:son2'
       });
     }, 1000);
   });
@@ -33,6 +34,7 @@ let userInfoSlice = createSlice({
         isNotification: true,
       },
       token: "",
+      auth: "",
     },
   },
   reducers: {

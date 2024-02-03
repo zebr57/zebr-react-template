@@ -1,17 +1,31 @@
 const mockRoutes = [
   {
-    title: "用户信息",
+    label: "用户信息",
+    key: "/userInfo",
     path: "/userInfo",
     component: "UserInfo",
+    meta: {
+      auth: 'userInfo'
+    },
   },
   {
-    title: "菜单",
+    label: "多级菜单",
+    key: "/menu",
     path: "/menu",
     component: "Menu",
     children: [
-      { title: "子菜单1", path: "son1", component: "Son1" }, // /menu/son1
-      { title: "子菜单2", path: "son2", component: "Son2" },
+      { label: "子菜单1", key: "/menu/son1", path: "son1", component: "Son1" }, // /menu/son1
+      { label: "子菜单2", key: "/menu/son2", path: "son2", component: "Son2" },
     ],
+  },
+  {
+    label: "404",
+    key: "/*",
+    path: "/*",
+    component: "NotFound",
+    meta: {
+      hidden: true,
+    },
   },
 ];
 

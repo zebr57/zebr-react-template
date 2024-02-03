@@ -33,6 +33,7 @@ function UserInfoPage() {
             age:20,
             gender: 0,
             token: 'user123',
+            auth: 'userInfo',
             config: {
               theme: 'yellow',
               isNotification: true
