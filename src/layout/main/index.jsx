@@ -1,20 +1,19 @@
 import React, { useState, Suspense } from "react";
-import { Routes, useNavigate, useLocation } from "react-router-dom";
+import { Routes } from "react-router-dom";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Button, theme } from "antd";
+import { Layout, Button, theme, Flex } from "antd";
 import SiderMenu from "./SiderMenu";
 import createRoute from "../../router/createRoute";
 import mockApiRoutes from "../../router/mockApiRoutes"; // 权限相关路由
+import UserInfo from "./UserInfo";
 
 import "./index.css";
 const { Header, Sider, Content } = Layout;
 const MainLayout = () => {
-  const location = useLocation();
   const [collapsed, setCollapsed] = useState(false); // 是否折叠
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const navigate = useNavigate();
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -24,31 +23,34 @@ const MainLayout = () => {
       <Layout>
         <Header
           style={{
+            height: 48,
+            lineHeight: "normal",
             padding: 0,
             background: colorBgContainer,
+            paddingRight: "16px",
           }}
         >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
+          <Flex
             style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
+              width: "100%",
+              height: "100%",
             }}
-          />
-          <Button
-            type="text"
-            onClick={() => {
-              localStorage.removeItem("auth");
-              localStorage.removeItem("token");
-              localStorage.removeItem("username");
-              navigate({ pathname: "/login", search: "?redirect=" + location.pathname });
-            }}
+            justify="space-between"
+            align="center"
           >
-            退出
-          </Button>
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: "16px",
+                width: 48,
+                height: 48,
+              }}
+            />
+            {/* 用户信息下拉框 */}
+            <UserInfo style={{ height: 48 }}></UserInfo>
+          </Flex>
         </Header>
         <Content
           style={{
