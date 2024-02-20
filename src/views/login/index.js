@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { getUserToken, getUserInfo } from "../../http/test";
+import { getUserInfo } from "../../http/test";
 import store from "../../store/toolkitIndex";
 import { changeCancelToken } from "../../store/common";
 
 function Login() {
-  let username = "admin1";
-  let password = "123456";
+  let username = "admin";
+  let password = "abc123";
   const navigate = useNavigate();
   const [search] = useSearchParams();
   // 组件挂载
@@ -36,24 +36,44 @@ function Login() {
   };
 
   const handleLogin = () => {
-    if (getUserToken.cancelToken) {
-      getUserToken.cancelToken();
+    if (password === "abc123") {
+      const res = {
+        code: "200",
+        data: {
+          username,
+          token: "usertoken",
+          auth: "userInfo,menu:son1,menu:son2",
+        },
+        message: "登录成功",
+      };
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.username);
+      localStorage.setItem("auth", res.data.auth);
+      // 跳转
+      const redirect = search.get("redirect") || "/";
+      navigate(redirect, { replace: true });
     }
-    getUserToken
-      .request({ username, password })
-      .then((res) => {
-        if (res.code === "200") {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("username", res.data.username);
-          localStorage.setItem("auth", res.data.auth);
-          // 跳转
-          const redirect = search.get("redirect") || "/";
-          navigate(redirect, { replace: true });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    /* =====================================  ===================================== */
+    // fastMock官网发布说明：关闭服务，所有请求返回404
+    // if (getUserToken.cancelToken) {
+    //   getUserToken.cancelToken();
+    // }
+    // getUserToken
+    //   .request({ username, password })
+    //   .then((res) => {
+    //     if (res.code === "200") {
+    //       localStorage.setItem("token", res.data.token);
+    //       localStorage.setItem("username", res.data.username);
+    //       localStorage.setItem("auth", res.data.auth);
+    //       // 跳转
+    //       const redirect = search.get("redirect") || "/";
+    //       navigate(redirect, { replace: true });
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (
