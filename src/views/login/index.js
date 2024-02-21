@@ -1,25 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { getUserInfo } from "../../http/test";
+// import { getUserInfo } from "../../http/test";
 import store from "../../store/toolkitIndex";
 import { changeCancelToken } from "../../store/common";
 
+import { Button, Form, Input, Flex } from "antd";
+
 function Login() {
-  let username = "admin";
-  let password = "abc123";
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [search] = useSearchParams();
   // 组件挂载
   useEffect(() => {
     console.log("effect");
-    getUserInfo
-      .request()
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // getUserInfo
+    //   .request()
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }, []);
   // 组件摧毁
   useEffect(() => {
@@ -34,8 +35,17 @@ function Login() {
     cancelTokenList.forEach((cb) => cb());
     store.dispatch(changeCancelToken([]));
   };
-
-  const handleLogin = () => {
+  /* ===================================== Form submit ===================================== */
+  // 提交成功
+  const onFinish = (values) => {
+    // console.log("Success:", values);
+    handleLogin(values);
+  };
+  // 提交失败
+  const onFinishFailed = (errorInfo) => {
+    // console.log("Failed:", errorInfo);
+  };
+  const handleLogin = ({ username, password }) => {
     if (password === "abc123") {
       const res = {
         code: "200",
@@ -77,22 +87,70 @@ function Login() {
   };
 
   return (
-    <div>
-      用户名：
-      <input
-        onInput={(e) => {
-          username = e.target.value;
+    <Flex
+      style={{
+        height: "100vh",
+        with: "100%",
+      }}
+      justify={"center"}
+      align={"center"}
+    >
+      <Form
+        name="basic"
+        labelCol={{
+          span: 8,
         }}
-      ></input>
-      密码：
-      <input
-        onInput={(e) => {
-          password = e.target.value;
+        wrapperCol={{
+          span: 16,
         }}
-      ></input>
-      <button onClick={handleLogin}>登录</button>
-      <button onClick={cancelAllRequest}>取消所有请求</button>
-    </div>
+        style={{
+          maxWidth: 400,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="用户名"
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: "Please input your username!",
+            },
+          ]}
+        >
+          <Input placeholder="请输入用户名" autoComplete="on" />
+        </Form.Item>
+
+        <Form.Item
+          label="密码"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <Input.Password autoComplete="on" placeholder="请输入密码" />
+        </Form.Item>
+
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit" loading={loading} onClick={() => setLoading(true)}>
+            登录
+          </Button>
+        </Form.Item>
+      </Form>
+    </Flex>
   );
 }
 

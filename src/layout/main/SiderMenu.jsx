@@ -26,7 +26,6 @@ function SiderMenu() {
   const filterItems = items.filter((item) => filterNodes(item));
   const navTo = useNavigate();
   const location = useLocation()
-  console.log(location);
   const goPage = ({ key }) => {
     navTo(key);
   };
