@@ -168,7 +168,7 @@ function TableBox(props) {
           <a>Edit</a>
           <a
             onClick={() => {
-              setData(data.filter((e) => record.name != e.name));
+              setData(data.filter((e) => record.name !== e.name));
             }}
           >
             Delete
@@ -178,26 +178,11 @@ function TableBox(props) {
     },
   ];
 
-  useEffect(() => {
-    getTableData();
-  }, [tableParams]);
-
-  // 如果外层有查询条件时，需要重置页码：props.searchParams.page 设为1
-  useEffect(() => {
-    if (props.searchParams.page) {
-      const pagination = tableParams.pagination;
-      setTableParams({
-        ...tableParams,
-        pagination: { ...pagination, current: props.searchParams.page },
-      });
-    }
-  }, [props.searchParams]);
-
   const getTableData = () => {
     setLoading(true);
     setTimeout(() => {
       console.log(getParams());
-      if (getParams().page != 1) {
+      if (getParams().page !== 1) {
         setData(data2);
       } else {
         setData(data1);
@@ -212,6 +197,23 @@ function TableBox(props) {
       size: tableParams.pagination.pageSize,
     };
   };
+  /* ===================================== useEffect ===================================== */
+  useEffect(() => {
+    getTableData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tableParams]);
+
+  // 如果外层有查询条件时，需要重置页码：props.searchParams.page 设为1
+  useEffect(() => {
+    if (props.searchParams.page) {
+      const pagination = tableParams.pagination;
+      setTableParams({
+        ...tableParams,
+        pagination: { ...pagination, current: props.searchParams.page },
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.searchParams]);
   /* ===================================== Event ===================================== */
   const handleTableChange = (pagination, filters, sorter) => {
     setTableParams({

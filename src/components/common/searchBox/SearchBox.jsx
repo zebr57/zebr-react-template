@@ -13,11 +13,11 @@ function SearchBox(props) {
   };
 
   useEffect(() => {
-    form.setFieldsValue({
+    form && form.setFieldsValue({
       name: "joe",
       age: 30,
     });
-  }, []);
+  }, [form]);
 
   return (
     <Form

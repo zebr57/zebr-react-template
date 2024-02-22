@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./store/toolkitIndex"; // 全局状态仓库
 import { Provider } from "react-redux"; // 全局状态传递至所有组件
 import { ConfigProvider } from "antd"; // 定制主题
+import "default-passive-events"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -26,6 +26,9 @@ dependencies:
   axios:
     specifier: ^1.6.5
     version: 1.6.5
+  default-passive-events:
+    specifier: ^2.0.0
+    version: 2.0.0
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -4590,6 +4593,10 @@ packages:
     engines: {node: '>= 10'}
     dependencies:
       execa: 5.1.1
+    dev: false
+
+  /default-passive-events@2.0.0:
+    resolution: {integrity: sha512-eMtt76GpDVngZQ3ocgvRcNCklUMwID1PaNbCNxfpDXuiOXttSh0HzBbda1HU9SIUsDc02vb7g9+3I5tlqe/qMQ==}
     dev: false
 
   /define-data-property@1.1.1:
