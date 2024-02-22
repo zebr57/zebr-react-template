@@ -25,11 +25,19 @@ function filterNodes(node) {
 function SiderMenu() {
   const filterItems = items.filter((item) => filterNodes(item));
   const navTo = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
   const goPage = ({ key }) => {
     navTo(key);
   };
-  return <Menu theme="dark" mode="inline" defaultSelectedKeys={[location.pathname]} items={filterItems} onClick={goPage} />;
+  return (
+    <Menu
+      theme="dark"
+      mode="inline"
+      defaultSelectedKeys={[location.pathname]}
+      items={filterItems}
+      onClick={goPage}
+    />
+  );
 }
 
 export default SiderMenu;

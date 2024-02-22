@@ -16,7 +16,7 @@ const App = () => {
     {
       key: "1",
       label: <div onClick={(e) => console.log("个人中心")}>个人中心</div>,
-      icon: <UserOutlined />,
+      icon: <UserOutlined />
     },
     {
       key: "2",
@@ -33,13 +33,13 @@ const App = () => {
           退出登录
         </div>
       ),
-      icon: <LogoutOutlined />,
-    },
+      icon: <LogoutOutlined />
+    }
   ];
   return (
     <Dropdown
       menu={{
-        items,
+        items
       }}
       arrow
     >

@@ -22,7 +22,7 @@ function ModalBox(props, ref) {
     // 暴露给父组件的方法
     changeIsOpen: (newVal) => {
       setIsOpen(newVal);
-    },
+    }
   }));
 
   return (
@@ -33,7 +33,7 @@ function ModalBox(props, ref) {
     </>
   );
 }
-const RefModalBox = forwardRef(ModalBox)
+const RefModalBox = forwardRef(ModalBox);
 // 类型校验
 RefModalBox.propTypes = {
   // msg: function (props) {
@@ -41,15 +41,15 @@ RefModalBox.propTypes = {
   //     throw new Error("msg must be a string");
   //   }
   // },
-  msg: propTypes.string,
+  msg: propTypes.string
 };
 // 默认值
 RefModalBox.defaultProps = {
   msg: "自定义标题",
   attr: {
     okText: "确定",
-    cancelText: "取消",
-  },
+    cancelText: "取消"
+  }
 };
 
 export default RefModalBox;

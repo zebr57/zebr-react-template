@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const httpSlice = createSlice({
   name: "httpSlice",
   initialState: {
-    cancelTokens: [],
+    cancelTokens: []
   },
   reducers: {
     changeCancelToken(state, action) {
       state.cancelTokens = action.payload;
-    },
-  },
+    }
+  }
 });
 
 const httpReducer = httpSlice.reducer;

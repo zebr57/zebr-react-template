@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 function AuthRoute(props) {
-  const location = useLocation()
+  const location = useLocation();
   // 1.获取token
   const token = localStorage.getItem("token");
   // 2.判断
@@ -9,7 +9,9 @@ function AuthRoute(props) {
     return <>{props.children}</>;
   } else {
     // 2.2 没有，重定向登录页面
-    return <Navigate to={{"pathname": "/login",search: "?redirect="+location.pathname}}></Navigate>
+    return (
+      <Navigate to={{ pathname: "/login", search: "?redirect=" + location.pathname }}></Navigate>
+    );
   }
 }
 

@@ -8,85 +8,85 @@ const data1 = [
     name: "John Brown",
     age: 32,
     address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    tags: ["nice", "developer"]
   },
   {
     key: "2",
     name: "Jim Green",
     age: 42,
     address: "London No. 1 Lake Park",
-    tags: ["loser"],
+    tags: ["loser"]
   },
   {
     key: "3",
     name: "Joe Black",
     age: 32,
     address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
+    tags: ["cool", "teacher"]
   },
   {
     key: "4",
     name: "John Brown",
     age: 32,
     address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    tags: ["nice", "developer"]
   },
   {
     key: "5",
     name: "Jim Green",
     age: 42,
     address: "London No. 1 Lake Park",
-    tags: ["loser"],
+    tags: ["loser"]
   },
   {
     key: "6",
     name: "Joe Black",
     age: 32,
     address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
+    tags: ["cool", "teacher"]
   },
   {
     key: "7",
     name: "John Brown",
     age: 32,
     address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    tags: ["nice", "developer"]
   },
   {
     key: "8",
     name: "Jim Green",
     age: 42,
     address: "London No. 1 Lake Park",
-    tags: ["loser"],
+    tags: ["loser"]
   },
   {
     key: "9",
     name: "Joe Black",
     age: 32,
     address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
+    tags: ["cool", "teacher"]
   },
   {
     key: "10",
     name: "John Brown",
     age: 32,
     address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    tags: ["nice", "developer"]
   },
   {
     key: "11",
     name: "Jim Green",
     age: 42,
     address: "London No. 1 Lake Park",
-    tags: ["loser"],
+    tags: ["loser"]
   },
   {
     key: "12",
     name: "Joe Black",
     age: 32,
     address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
+    tags: ["cool", "teacher"]
+  }
 ];
 const data2 = [
   {
@@ -94,22 +94,22 @@ const data2 = [
     name: "John Brown2",
     age: 32,
     address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
+    tags: ["nice", "developer"]
   },
   {
     key: "5",
     name: "Jim Green2",
     age: 42,
     address: "London No. 1 Lake Park",
-    tags: ["loser"],
+    tags: ["loser"]
   },
   {
     key: "6",
     name: "Joe Black2",
     age: 32,
     address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
+    tags: ["cool", "teacher"]
+  }
 ];
 
 function TableBox(props) {
@@ -119,8 +119,8 @@ function TableBox(props) {
       position: ["none", "bottomRight"],
       current: 1,
       total: 200,
-      pageSize: 20,
-    },
+      pageSize: 20
+    }
   });
   const [data, setData] = useState([]);
   const columns = [
@@ -128,17 +128,17 @@ function TableBox(props) {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (text) => <a>{text}</a>,
+      render: (text) => <a>{text}</a>
     },
     {
       title: "Age",
       dataIndex: "age",
-      key: "age",
+      key: "age"
     },
     {
       title: "Address",
       dataIndex: "address",
-      key: "address",
+      key: "address"
     },
     {
       title: "Tags",
@@ -158,7 +158,7 @@ function TableBox(props) {
             );
           })}
         </span>
-      ),
+      )
     },
     {
       title: "Action",
@@ -174,8 +174,8 @@ function TableBox(props) {
             Delete
           </a>
         </Space>
-      ),
-    },
+      )
+    }
   ];
 
   const getTableData = () => {
@@ -194,7 +194,7 @@ function TableBox(props) {
     return {
       ...props.searchParams,
       page: tableParams.pagination.current,
-      size: tableParams.pagination.pageSize,
+      size: tableParams.pagination.pageSize
     };
   };
   /* ===================================== useEffect ===================================== */
@@ -209,7 +209,7 @@ function TableBox(props) {
       const pagination = tableParams.pagination;
       setTableParams({
         ...tableParams,
-        pagination: { ...pagination, current: props.searchParams.page },
+        pagination: { ...pagination, current: props.searchParams.page }
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -219,7 +219,7 @@ function TableBox(props) {
     setTableParams({
       pagination,
       filters,
-      ...sorter,
+      ...sorter
     });
   };
   return (
@@ -239,10 +239,10 @@ function TableBox(props) {
 }
 
 TableBox.propTypes = {
-  scrollY: PropTypes.string,
+  scrollY: PropTypes.string
 };
 TableBox.defaultProps = {
-  scrollY: "calc(100vh - 240px)",
+  scrollY: "calc(100vh - 240px)"
 };
 
 export default TableBox;

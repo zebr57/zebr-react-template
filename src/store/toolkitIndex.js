@@ -16,25 +16,25 @@ export let changeNumThunk = createAsyncThunk("numSlice/changeNum", async () => {
 let mesSlice = createSlice({
   name: "mesSlice", // 切片名，dispatch时需要加的前缀
   initialState: {
-    mes: "hello", // 初始状态值
+    mes: "hello" // 初始状态值
   },
   reducers: {
     // 定义修改状态值方法
     changeMes(state, action) {
       state.mes = action.payload;
-    },
-  },
+    }
+  }
 });
 // 2.2 定义num切片（模块化）
 let numSlice = createSlice({
   name: "numSlice",
   initialState: {
-    num: 0,
+    num: 0
   },
   reducers: {
     addNum(state, action) {
       state.num += 1;
-    },
+    }
   },
   // 异步reducers
   extraReducers: (chunk) => {
@@ -48,7 +48,7 @@ let numSlice = createSlice({
     chunk.addCase(changeNumThunk.rejected, () => {
       console.log("rejected");
     });
-  },
+  }
 });
 // 3.配置模块化仓库
 const store = configureStore({
@@ -56,12 +56,12 @@ const store = configureStore({
     mesReducer: mesSlice.reducer,
     numReducer: numSlice.reducer,
     userInfoReducer,
-    httpReducer,
+    httpReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+      serializableCheck: false
+    })
 });
 
 // console.log(mesSlice.actions); // {changeMes: ƒ}

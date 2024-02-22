@@ -30,7 +30,7 @@ function numReducer(state = { num: 0 }, action) {
 // 创建模块化的reducer
 const reducer = combineReducers({
   mesReducer,
-  numReducer,
+  numReducer
 });
 // 3.创建store
 let store = createStore(reducer);

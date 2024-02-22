@@ -11,10 +11,10 @@ export let changeUserInfoThunk = createAsyncThunk("userInfoSlice/changeUserInfoA
         gender: 1,
         config: {
           theme: "base",
-          isNotification: true,
+          isNotification: true
         },
         token: "admin123",
-        auth: 'userInfo,menu:son1,menu:son2'
+        auth: "userInfo,menu:son1,menu:son2"
       });
     }, 1000);
   });
@@ -31,11 +31,11 @@ let userInfoSlice = createSlice({
       gender: 1,
       config: {
         theme: "base",
-        isNotification: true,
+        isNotification: true
       },
       token: "",
-      auth: "",
-    },
+      auth: ""
+    }
   },
   reducers: {
     // 定义修改状态值方法
@@ -44,7 +44,7 @@ let userInfoSlice = createSlice({
     },
     changeUserToken(state, action) {
       state.userInfo.token = action.payload;
-    },
+    }
   },
   // 异步reducers
   extraReducers: (chunk) => {
@@ -57,7 +57,7 @@ let userInfoSlice = createSlice({
     chunk.addCase(changeUserInfoThunk.rejected, () => {
       // console.log("rejected"); // 一般也不干嘛
     });
-  },
+  }
 });
 // 3.创建
 const userInfoReducer = userInfoSlice.reducer;

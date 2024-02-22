@@ -13,10 +13,11 @@ function SearchBox(props) {
   };
 
   useEffect(() => {
-    form && form.setFieldsValue({
-      name: "joe",
-      age: 30,
-    });
+    form &&
+      form.setFieldsValue({
+        name: "joe",
+        age: 30
+      });
   }, [form]);
 
   return (
@@ -24,7 +25,7 @@ function SearchBox(props) {
       layout={"inline"}
       form={form}
       initialValues={{
-        layout: "inline",
+        layout: "inline"
       }}
       onFinish={handleSubmit}
     >
@@ -34,7 +35,7 @@ function SearchBox(props) {
       <Form.Item name="age" label="年龄">
         <Input disabled={true} placeholder="请输入年龄" />
       </Form.Item>
-      <Form.Item >
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           查询
         </Button>

@@ -5,8 +5,8 @@ const mockRoutes = [
     path: "/userInfo",
     component: "UserInfo",
     meta: {
-      auth: 'userInfo'
-    },
+      auth: "userInfo"
+    }
   },
   {
     label: "多级菜单",
@@ -15,8 +15,8 @@ const mockRoutes = [
     component: "Menu",
     children: [
       { label: "子菜单1", key: "/menu/son1", path: "son1", component: "Son1" }, // /menu/son1
-      { label: "子菜单2", key: "/menu/son2", path: "son2", component: "Son2" },
-    ],
+      { label: "子菜单2", key: "/menu/son2", path: "son2", component: "Son2" }
+    ]
   },
   {
     label: "404",
@@ -24,9 +24,9 @@ const mockRoutes = [
     path: "/*",
     component: "NotFound",
     meta: {
-      hidden: true,
-    },
-  },
+      hidden: true
+    }
+  }
 ];
 
 export default mockRoutes;

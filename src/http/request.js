@@ -8,7 +8,7 @@ const requestTypeMap = {
   json: "json",
   formData: "form-data",
   arraybuffer: "arraybuffer",
-  blob: "blob",
+  blob: "blob"
 };
 const baseUrl = "https://www.fastmock.site/mock/0c9368c9f0ac24733913c755609726b9";
 // const baseUrl = process.env === "development" ? "http://localhost:8084" : window.location.origin;
@@ -24,7 +24,7 @@ export default class HttpRequest {
     this.xhr_method = method ? method.toLocaleLowerCase() : "get"; // 请求方式
 
     this.xhr_service = axios.create({
-      timeout: 60000, // request timeout
+      timeout: 60000 // request timeout
     }); // axios.create
 
     this.cancelToken = null; // 存放取消请求方法
@@ -45,22 +45,22 @@ export default class HttpRequest {
     switch (this.xhr_type) {
       case requestTypeMap.json:
         xhr_header = {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         };
         break;
       case requestTypeMap.formData:
         xhr_header = {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "multipart/form-data"
         };
         break;
       case requestTypeMap.blob:
         xhr_header = {
-          responseType: "blob",
+          responseType: "blob"
         };
         break;
       case requestTypeMap.arraybuffer:
         xhr_header = {
-          responseType: "arraybuffer",
+          responseType: "arraybuffer"
         };
         break;
       default:
@@ -93,7 +93,9 @@ export default class HttpRequest {
       return;
     }
     if (!this.xhr_api_code) {
-      console.error("请填写 接口文档 编码（https://apidoc.datastory.com.cn/doc/79vEfaoSkP => apiCode: 79vEfaoSkP）");
+      console.error(
+        "请填写 接口文档 编码（https://apidoc.datastory.com.cn/doc/79vEfaoSkP => apiCode: 79vEfaoSkP）"
+      );
       return;
     }
 
@@ -114,7 +116,7 @@ export default class HttpRequest {
         // setTimeout(() => {
         //   console.log(store.getState().httpReducer.cancelTokens);
         // }, 1000);
-      }),
+      })
     })
       .then((res) => {
         return Promise.resolve(res);
@@ -174,7 +176,8 @@ export default class HttpRequest {
       (error) => {
         let message = error.message;
         if (error.message.includes("timeout")) message = "网络请求超时！";
-        if (error.message.includes("Network")) message = window.navigator.onLine ? "服务端异常！" : "您断网了！";
+        if (error.message.includes("Network"))
+          message = window.navigator.onLine ? "服务端异常！" : "您断网了！";
 
         console.warn("err message", message);
         throw error;

@@ -44,7 +44,7 @@ const reduxHome = connect(
   (state) => {
     return {
       mes: state.mesReducer.mes,
-      num: state.numReducer.num,
+      num: state.numReducer.num
     };
   },
   (dispatch) => {
@@ -52,18 +52,18 @@ const reduxHome = connect(
       changeMes() {
         dispatch({
           type: "mesSlice/changeMes",
-          payload: "hello word!",
+          payload: "hello word!"
         });
       },
       changeNum() {
         dispatch({
           type: "numSlice/addNum",
-          payload: 999,
+          payload: 999
         });
       },
       changeNumThunk() {
         dispatch(changeNumThunk());
-      },
+      }
     };
   }
 )(Home);

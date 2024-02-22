@@ -52,9 +52,9 @@ function Login() {
         data: {
           username,
           token: "usertoken",
-          auth: "userInfo,menu:son1,menu:son2",
+          auth: "userInfo,menu:son1,menu:son2"
         },
-        message: "登录成功",
+        message: "登录成功"
       };
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("username", res.data.username);
@@ -90,7 +90,7 @@ function Login() {
     <Flex
       style={{
         height: "100vh",
-        with: "100%",
+        with: "100%"
       }}
       justify={"center"}
       align={"center"}
@@ -98,16 +98,16 @@ function Login() {
       <Form
         name="basic"
         labelCol={{
-          span: 8,
+          span: 8
         }}
         wrapperCol={{
-          span: 16,
+          span: 16
         }}
         style={{
-          maxWidth: 400,
+          maxWidth: 400
         }}
         initialValues={{
-          remember: true,
+          remember: true
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -119,8 +119,8 @@ function Login() {
           rules={[
             {
               required: true,
-              message: "Please input your username!",
-            },
+              message: "Please input your username!"
+            }
           ]}
         >
           <Input placeholder="请输入用户名" autoComplete="on" />
@@ -132,8 +132,8 @@ function Login() {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
-            },
+              message: "Please input your password!"
+            }
           ]}
         >
           <Input.Password autoComplete="on" placeholder="请输入密码" />
@@ -142,10 +142,15 @@ function Login() {
         <Form.Item
           wrapperCol={{
             offset: 8,
-            span: 16,
+            span: 16
           }}
         >
-          <Button type="primary" htmlType="submit" loading={loading} onClick={() => setLoading(true)}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            loading={loading}
+            onClick={() => setLoading(true)}
+          >
             登录
           </Button>
         </Form.Item>

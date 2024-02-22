@@ -14,7 +14,7 @@ const routeMap = {
   Menu: lazy(() => import("../views/menu/index")),
   Son1: lazy(() => import("../views/menu/son1")),
   Son2: lazy(() => import("../views/menu/son2")),
-  UserInfo: lazy(() => import("../views/userManage/index")),
+  UserInfo: lazy(() => import("../views/userManage/index"))
 };
 
 export default routeMap;

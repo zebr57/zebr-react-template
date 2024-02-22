@@ -12,7 +12,7 @@ const { Header, Sider, Content } = Layout;
 const MainLayout = () => {
   const [collapsed, setCollapsed] = useState(false); // 是否折叠
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { colorBgContainer, borderRadiusLG }
   } = theme.useToken();
   return (
     <Layout>
@@ -27,13 +27,13 @@ const MainLayout = () => {
             lineHeight: "normal",
             padding: 0,
             background: colorBgContainer,
-            paddingRight: "16px",
+            paddingRight: "16px"
           }}
         >
           <Flex
             style={{
               width: "100%",
-              height: "100%",
+              height: "100%"
             }}
             justify="space-between"
             align="center"
@@ -45,7 +45,7 @@ const MainLayout = () => {
               style={{
                 fontSize: "16px",
                 width: 48,
-                height: 48,
+                height: 48
               }}
             />
             {/* 用户信息下拉框 */}
@@ -60,7 +60,7 @@ const MainLayout = () => {
             height: "calc(100vh - 96px)",
             overflow: "hidden",
             background: colorBgContainer,
-            borderRadius: borderRadiusLG,
+            borderRadius: borderRadiusLG
           }}
         >
           <Suspense>
