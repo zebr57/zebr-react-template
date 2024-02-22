@@ -7,6 +7,8 @@
 - axios 网络请求
 - 引用 antd 第三方 UI 组件库
 - 权限菜单、路由守卫
+- 集成 eslint + prettier
+- 集成 husky (git commitLint)
 
 # 目录
 
