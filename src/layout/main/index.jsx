@@ -57,6 +57,8 @@ const MainLayout = () => {
             margin: "24px 16px",
             padding: 24,
             minHeight: 280,
+            height: "calc(100vh - 96px)",
+            overflow: "hidden",
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
