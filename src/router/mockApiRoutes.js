@@ -19,6 +19,16 @@ const mockRoutes = [
     ]
   },
   {
+    label: "图表",
+    key: "/charts",
+    path: "/charts",
+    component: "Charts",
+    children: [
+      { label: "基础图表", key: "/charts/baseChart", path: "baseChart", component: "BaseChart" }
+      // { label: "子菜单2", key: "/charts/son2", path: "son2", component: "Son2" }
+    ]
+  },
+  {
     label: "404",
     key: "/*",
     path: "/*",

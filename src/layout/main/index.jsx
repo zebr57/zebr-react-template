@@ -58,7 +58,7 @@ const MainLayout = () => {
             padding: 24,
             minHeight: 280,
             height: "calc(100vh - 96px)",
-            overflow: "hidden",
+            overflow: "scroll",
             background: colorBgContainer,
             borderRadius: borderRadiusLG
           }}
