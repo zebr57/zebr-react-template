@@ -1,5 +1,5 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.less";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import createRoute from "./router/createRoute";
 import mainRoutes from "./router/mainRoutes"; // 一些主要路由
 // import mockApiRoutes from "./router/mockApiRoutes"; // 权限相关路由
@@ -11,7 +11,7 @@ import AuthRoute from "./router/authRoute";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {createRoute(mainRoutes)}
           <Route
@@ -23,7 +23,7 @@ function App() {
             }
           ></Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

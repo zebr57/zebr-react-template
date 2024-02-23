@@ -1,8 +1,11 @@
 import { connect } from "react-redux";
 // import { useSelector, useDispatch } from "react-redux"; // 1.引入hook
 import { changeNumThunk } from "../../store/toolkitIndex";
+import "./index.less";
+import lessModuleStyle from "./index.module.less";
 
 function Home(props) {
+  console.log("lessModuleStyle", lessModuleStyle);
   // 2. hook 方式映射到state
   // let num = useSelector((state) => {
   //   return state.numReducer.num;
@@ -12,8 +15,8 @@ function Home(props) {
   return (
     <div className="home-page">
       home page
-      <div>mes:{props.mes}</div>
-      <div>num:{props.num}</div>
+      <div className="text">mes:{props.mes}</div>
+      <div className="text">num:{props.num}</div>
       {/* <div>num:{num}</div> hook 形式*/}
       <button
         onClick={() => {

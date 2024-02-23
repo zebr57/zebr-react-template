@@ -25,10 +25,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
     "prepare": "husky install",
     "fix": "eslint src --fix",
     "format": "prettier --write \"./**/*.{html,tsx,ts,jsx,js,json,md}\"",
@@ -49,6 +49,10 @@
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.6.2",
-    "husky": "^8.0.0"
+    "@craco/craco": "^7.1.0",
+    "craco-less": "^3.0.1",
+    "husky": "^8.0.0",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0"
   }
 }
