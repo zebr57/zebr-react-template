@@ -56,6 +56,13 @@
     "husky": "^8.0.3",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
+    "lint-staged": "^15.2.2",
     "webpack-bundle-analyzer": "^4.10.1"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx}": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ]
   }
 }
