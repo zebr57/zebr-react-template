@@ -2,6 +2,7 @@ const CracoLessPlugin = require("craco-less");
 const { loaderByName } = require("@craco/craco");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const WebpackBar = require("webpackbar"); // webpack 编译进度条
 const path = require("path");
 
 module.exports = function (webpackEnv) {
@@ -58,7 +59,7 @@ module.exports = function (webpackEnv) {
                   priority: -10
                 }
               }
-            }
+            },
           };
           // 压缩文件 gz
           webpackConfig.plugins.push(
@@ -78,6 +79,15 @@ module.exports = function (webpackEnv) {
         console.warn(env + "-url=" + process.env.REACT_APP_URL);
 
         return webpackConfig;
+      },
+      plugins: {
+        add: [
+          new WebpackBar({
+            name: "webpack开始构建......",
+            color: "#2d56f8",
+            profile: true
+          })
+        ]
       }
     },
     devServer: {
@@ -156,6 +166,7 @@ module.exports = function (webpackEnv) {
  * 1.1 配置别名
  * 1.2 配置代理
  * 1.3 配置less，支持模块化、全局引入less文件
+ * 1.4 美化打包过程进度
  * 2.生产环境
  * 2.1 修改打包输出结果
  * 2.2 关闭 sourceMap
